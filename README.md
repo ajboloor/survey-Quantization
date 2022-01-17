@@ -54,7 +54,11 @@ todo
 
 ## Important Papers
 
-#### Han, Song, Huizi Mao, and William J. Dally. "Deep compression: Compressing deep neural networks with pruning, trained quantization and huffman coding." arXiv preprint arXiv:1510.00149 (2015). [link](https://arxiv.org/pdf/1510.00149.pdf) ![](https://img.shields.io/badge/dataset-ImageNet-orange.svg)
+#### Han, Song, Huizi Mao, and William J. Dally. "Deep compression: Compressing deep neural networks with pruning, trained quantization and huffman coding." arXiv preprint arXiv:1510.00149 (2015). [link](https://arxiv.org/pdf/1510.00149.pdf) ![](https://img.shields.io/badge/dataset-ImageNet-orange.svg) ![](https://img.shields.io/badge/models-AlexNet_|_VGG--16-green.svg) 
+- Three step process:
+-- Pruning - learn only important network connections
+-- Quantization - quantized centroids for weight sharing
+-- Huffman coding
 
 #### Iandola, Forrest N., Song Han, Matthew W. Moskewicz, Khalid Ashraf, William J. Dally, and Kurt Keutzer. "SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and< 0.5 MB model size." arXiv preprint arXiv:1602.07360 (2016). [link](https://arxiv.org/pdf/1602.07360.pdf)
 
