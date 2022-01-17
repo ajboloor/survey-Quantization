@@ -62,7 +62,7 @@ todo
 
 #### Zhang, Tianyun, Shaokai Ye, Kaiqi Zhang, Jian Tang, Wujie Wen, Makan Fardad, and Yanzhi Wang. "A systematic dnn weight pruning framework using alternating direction method of multipliers." In Proceedings of the European Conference on Computer Vision (ECCV), pp. 184-199. 2018. [link](https://arxiv.org/pdf/1804.03294v3.pdf)
 
-#### Lin, Darryl, Sachin Talathi, and Sreekanth Annapureddy. "Fixed point quantization of deep convolutional networks." In International conference on machine learning, pp. 2849-2858. PMLR, 2016. [link](http://proceedings.mlr.press/v48/linb16.pdf) ![](https://img.shields.io/badge/dataset-CIFAR--10-orange.svg))
+#### Lin, Darryl, Sachin Talathi, and Sreekanth Annapureddy. "Fixed point quantization of deep convolutional networks." In International conference on machine learning, pp. 2849-2858. PMLR, 2016. [link](http://proceedings.mlr.press/v48/linb16.pdf) ![](https://img.shields.io/badge/dataset-CIFAR--10-orange.svg)
 - Proposes algorithm to convert floating point to fixed point 
 - Converts CNN layer activations and weights into fixed point
 
