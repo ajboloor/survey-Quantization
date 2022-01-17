@@ -30,6 +30,15 @@ todo: add more information about authors (key contributions, etc.)
 ```
 ## Important Terminology
 
+#### Precision
+##### Floating Point
+- Varying number of digits after decimal point
+##### Fixed Point
+- Fixed number of digits after the decimal point
+- Arithmetic is done with integers
+
+#### Houfman Encoding
+
 ```
 todo
 ```
@@ -53,4 +62,9 @@ todo
 
 #### Zhang, Tianyun, Shaokai Ye, Kaiqi Zhang, Jian Tang, Wujie Wen, Makan Fardad, and Yanzhi Wang. "A systematic dnn weight pruning framework using alternating direction method of multipliers." In Proceedings of the European Conference on Computer Vision (ECCV), pp. 184-199. 2018. [link](https://arxiv.org/pdf/1804.03294v3.pdf)
 
-#### Lin, Darryl, Sachin Talathi, and Sreekanth Annapureddy. "Fixed point quantization of deep convolutional networks." In International conference on machine learning, pp. 2849-2858. PMLR, 2016. [link](http://proceedings.mlr.press/v48/linb16.pdf)
+#### Lin, Darryl, Sachin Talathi, and Sreekanth Annapureddy. "Fixed point quantization of deep convolutional networks." In International conference on machine learning, pp. 2849-2858. PMLR, 2016. [link](http://proceedings.mlr.press/v48/linb16.pdf) ![](https://img.shields.io/badge/dataset-CIFAR--10-orange.svg))
+- Proposes algorithm to convert floating point to fixed point 
+- Converts CNN layer activations and weights into fixed point
+
+
+#### Zhu, Chenzhuo, Song Han, Huizi Mao, and William J. Dally. "Trained ternary quantization." arXiv preprint arXiv:1612.01064 (2016). [link](https://arxiv.org/pdf/1612.01064.pdf)
