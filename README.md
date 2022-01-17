@@ -37,7 +37,7 @@ todo: add more information about authors (key contributions, etc.)
 - Fixed number of digits after the decimal point
 - Arithmetic is done with integers
 
-#### Houfman Encoding
+#### Huffman Coding
 
 ```
 todo
@@ -54,7 +54,7 @@ todo
 
 ## Important Papers
 
-#### Han, Song, Huizi Mao, and William J. Dally. "Deep compression: Compressing deep neural networks with pruning, trained quantization and huffman coding." arXiv preprint arXiv:1510.00149 (2015). [link](https://arxiv.org/pdf/1510.00149.pdf)
+#### Han, Song, Huizi Mao, and William J. Dally. "Deep compression: Compressing deep neural networks with pruning, trained quantization and huffman coding." arXiv preprint arXiv:1510.00149 (2015). [link](https://arxiv.org/pdf/1510.00149.pdf) (https://img.shields.io/badge/dataset-ImageNet-orange.svg)
 
 #### Iandola, Forrest N., Song Han, Matthew W. Moskewicz, Khalid Ashraf, William J. Dally, and Kurt Keutzer. "SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and< 0.5 MB model size." arXiv preprint arXiv:1602.07360 (2016). [link](https://arxiv.org/pdf/1602.07360.pdf)
 
@@ -65,6 +65,5 @@ todo
 #### Lin, Darryl, Sachin Talathi, and Sreekanth Annapureddy. "Fixed point quantization of deep convolutional networks." In International conference on machine learning, pp. 2849-2858. PMLR, 2016. [link](http://proceedings.mlr.press/v48/linb16.pdf) ![](https://img.shields.io/badge/dataset-CIFAR--10-orange.svg)
 - Proposes algorithm to convert floating point to fixed point 
 - Converts CNN layer activations and weights into fixed point
-
 
 #### Zhu, Chenzhuo, Song Han, Huizi Mao, and William J. Dally. "Trained ternary quantization." arXiv preprint arXiv:1612.01064 (2016). [link](https://arxiv.org/pdf/1612.01064.pdf)
