@@ -72,6 +72,8 @@ floating point add consumes 0.9pJ, a 32bit SRAM cache access takes 5pJ, while a 
 
 #### Zhang, Tianyun, Shaokai Ye, Kaiqi Zhang, Jian Tang, Wujie Wen, Makan Fardad, and Yanzhi Wang. "A systematic dnn weight pruning framework using alternating direction method of multipliers." In Proceedings of the European Conference on Computer Vision (ECCV), pp. 184-199. 2018. [link](https://arxiv.org/pdf/1804.03294v3.pdf)
 
+#### Anwar, S., Hwang, K. and Sung, W., 2015, April. Fixed point optimization of deep convolutional neural networks for object recognition. In 2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) (pp. 1131-1135). IEEE. 
+
 #### Lin, Darryl, Sachin Talathi, and Sreekanth Annapureddy. "Fixed point quantization of deep convolutional networks." In International conference on machine learning, pp. 2849-2858. PMLR, 2016. [link](http://proceedings.mlr.press/v48/linb16.pdf) ![](https://img.shields.io/badge/dataset-CIFAR--10_|_ImageNet-orange.svg)
 - Proposes algorithm to convert floating point trained Deep Convolutional Network (DCN) to fixed point 
 - Converts CNN layer activations and weights into fixed point
@@ -110,6 +112,29 @@ Key takeaways:
 
 #### Zhu, Chenzhuo, Song Han, Huizi Mao, and William J. Dally. "Trained ternary quantization." arXiv preprint arXiv:1612.01064 (2016). [link](https://arxiv.org/pdf/1612.01064.pdf)
 
-#### Rastegari, Mohammad, Vicente Ordonez, Joseph Redmon, and Ali Farhadi. "Xnor-net: Imagenet classification using binary convolutional neural networks." In European conference on computer vision, pp. 525-542. Springer, Cham, 2016.  [link](https://link.springer.com/chapter/10.1007/978-3-319-46493-0_32)
+#### Courbariaux, Matthieu, Itay Hubara, Daniel Soudry, Ran El-Yaniv, and Yoshua Bengio. "Binarized neural networks: Training deep neural networks with weights and activations constrained to+ 1 or-1." arXiv preprint arXiv:1602.02830 (2016).
+![](https://img.shields.io/badge/dataset-MINST_|_CIFAR--10_|_SVHN-orange.svg) 
+- Contributions
+  - Binarized Neural Networks (BNNs) -> neural networks with binarized weights and activations at run-time
+  - Implemented on Torch7 and Theano on MNIST, CIFAR-10 and SVHN
+  - Forward pass shows significant reduction in memory consumption and most arithmetic operations can be replaced with bit-wsie operations.
+  - Programed a binary matrix multiplication GPU kernel that has 7x speedup than unoptimized GPU kernel
+> When training a BNN, we constrain both the weights and the activations to either +1 or −1.
+- Binarization functions
+  - Deterministic: x<sup>b</sup> = sign(x)
+  - Stochastic: x<sup>b</sup> = +1 with probability p = sigma(x) and -1 with probability 1 - p
+    - where sigma is the hard sigmoid
+- Since sign(x) is a non-differentiable function, they use something called a [straight-through estimator](https://www.hassanaskary.com/python/pytorch/deep%20learning/2020/09/19/intuitive-explanation-of-straight-through-estimators.html) for backpropagation. Essentially the gradients of the previous layer are backpropagated directly (via a hard tanh to clamp gradients to -1 to 1).
 
-#### Anwar, S., Hwang, K. and Sung, W., 2015, April. Fixed point optimization of deep convolutional neural networks for object recognition. In 2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) (pp. 1131-1135). IEEE. 
+
+Key takeaways:
+- Straight-through estimator
+
+#### Rastegari, Mohammad, Vicente Ordonez, Joseph Redmon, and Ali Farhadi. "Xnor-net: Imagenet classification using binary convolutional neural networks." In European conference on computer vision, pp. 525-542. Springer, Cham, 2016.  [link](https://link.springer.com/chapter/10.1007/978-3-319-46493-0_32)
+![](https://img.shields.io/badge/dataset-ImageNet-orange.svg) ![](https://img.shields.io/badge/models-AlexNet-green.svg)
+- 84% top1 accuracy on ImageNet with AlexNet
+- Two approximations
+  - Binary-weight-networks (weight values are binary and convolution can be done with addition and subtraction without multiplication)
+  - XNOR-networks (both weights and inputs to the CONV and FC layers are binary) -> FC are implemented as CONV
+
+
