@@ -54,7 +54,8 @@ todo
 
 ## Important Papers
 
-#### Han, Song, Huizi Mao, and William J. Dally. "Deep compression: Compressing deep neural networks with pruning, trained quantization and huffman coding." arXiv preprint arXiv:1510.00149 (2015). [link](https://arxiv.org/pdf/1510.00149.pdf) ![](https://img.shields.io/badge/dataset-ImageNet-orange.svg) ![](https://img.shields.io/badge/models-AlexNet_|_VGG--16-green.svg) 
+#### Han, Song, Huizi Mao, and William J. Dally. "Deep compression: Compressing deep neural networks with pruning, trained quantization and huffman coding." arXiv preprint arXiv:1510.00149 (2015). [link](https://arxiv.org/pdf/1510.00149.pdf) 
+![](https://img.shields.io/badge/dataset-ImageNet-orange.svg) ![](https://img.shields.io/badge/models-AlexNet_|_VGG--16-green.svg) 
 - Three step process:
 -- Pruning - learn only important network connections
 -- Quantization - quantized centroids for weight sharing
@@ -67,7 +68,15 @@ todo
 #### Zhang, Tianyun, Shaokai Ye, Kaiqi Zhang, Jian Tang, Wujie Wen, Makan Fardad, and Yanzhi Wang. "A systematic dnn weight pruning framework using alternating direction method of multipliers." In Proceedings of the European Conference on Computer Vision (ECCV), pp. 184-199. 2018. [link](https://arxiv.org/pdf/1804.03294v3.pdf)
 
 #### Lin, Darryl, Sachin Talathi, and Sreekanth Annapureddy. "Fixed point quantization of deep convolutional networks." In International conference on machine learning, pp. 2849-2858. PMLR, 2016. [link](http://proceedings.mlr.press/v48/linb16.pdf) ![](https://img.shields.io/badge/dataset-CIFAR--10-orange.svg)
-- Proposes algorithm to convert floating point to fixed point 
+- Proposes algorithm to convert floating point trained Deep Convolutional Network (DCN) to fixed point 
 - Converts CNN layer activations and weights into fixed point
+- Builds upon Sajid et al (2015)'s work on converting pretrained floating point networks to fixed point model using an optimization stratgy based on signal-to-quantization-noise-ratio (SQNR) instead of exhaustive search.
+- Range = Stepsize * 2 ^ Bitwidth
+  - have a large enough range to reduce overflow
+  - small enough resolution to reduce quantization error
 
 #### Zhu, Chenzhuo, Song Han, Huizi Mao, and William J. Dally. "Trained ternary quantization." arXiv preprint arXiv:1612.01064 (2016). [link](https://arxiv.org/pdf/1612.01064.pdf)
+
+#### Rastegari, Mohammad, Vicente Ordonez, Joseph Redmon, and Ali Farhadi. "Xnor-net: Imagenet classification using binary convolutional neural networks." In European conference on computer vision, pp. 525-542. Springer, Cham, 2016.  [link](https://link.springer.com/chapter/10.1007/978-3-319-46493-0_32)
+
+#### Anwar, S., Hwang, K. and Sung, W., 2015, April. Fixed point optimization of deep convolutional neural networks for object recognition. In 2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) (pp. 1131-1135). IEEE. 
