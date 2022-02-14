@@ -74,6 +74,20 @@ todo
 - Range = Stepsize * 2 ^ Bitwidth
   - have a large enough range to reduce overflow
   - small enough resolution to reduce quantization error
+> For example, suppose the input is Gaussian distributed with zero mean and unit variance. If we need a uniform quantizer with bit-width of 1 (i.e. 2 levels), the best approach is to place the quantized values at -0.798 and 0.798. In other words, the step size is 1.596. If we need a quantizer with bit-width of 2 (i.e. 4 levels), the best approach is to place the quantized values at -1.494, -0.498, 0.498, and 1.494. In other words, the step size is 0.996 ... sometimes it is desirable to have 0 as one of the quantized values because of the potential savings in model storage and computational complexity. This means that for a quantizer with 4 levels, the quantized values could be -0.996, 0.0, 0.996, and 1.992.
+- gamma_dB = k * beta
+  - gamma_db = 10*log10(gamma) -> SQNR in dB
+  - k -> quantization efficiency
+  - beta -> bit-width
+  - k {uniform distribution} = 6dB/bit (practically 2-4dB/bit)
+  - k {Gaussian distribution} = 5dB/bit
+- Any floating point DCN model can be converted to fixedpoint by following these steps:
+  - Run a forward pass in floating point using a large set of typical inputs and record the activations.
+  - Collect the statistics (zeta) of weights, biases and activations for each layer.
+  - Determine the fixed point formats (resolution) of the weights, biases and activations for each layer
+    - step_size = zeta * Stepsize(beta) from the Table
+  - Compute number of fractional bits n = round(-log2(step_size))
+> The effect of quantization (degradation) can be accurately captured in a single quantity, the SQNR.
 
 #### Zhu, Chenzhuo, Song Han, Huizi Mao, and William J. Dally. "Trained ternary quantization." arXiv preprint arXiv:1612.01064 (2016). [link](https://arxiv.org/pdf/1612.01064.pdf)
 
