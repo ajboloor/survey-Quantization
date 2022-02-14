@@ -135,10 +135,11 @@ Key takeaways:
 
 Key takeaways:
 - Use the idea of straight-through estimator when dealing with non-differentiable functions
+- Use of [hardtanh](https://pytorch.org/docs/stable/generated/torch.nn.Hardtanh.html) as an 'activation' to clamp values between -1 and 1 
 
 #### Rastegari, Mohammad, Vicente Ordonez, Joseph Redmon, and Ali Farhadi. "Xnor-net: Imagenet classification using binary convolutional neural networks." In European conference on computer vision, pp. 525-542. Springer, Cham, 2016.  [link](https://link.springer.com/chapter/10.1007/978-3-319-46493-0_32)
 ![](https://img.shields.io/badge/dataset-ImageNet-orange.svg) ![](https://img.shields.io/badge/models-AlexNet-green.svg)
-- 84% top1 accuracy on ImageNet with AlexNet
+- 84% top1 accuracy on ImageNet with AlexNet, and out performs BinaryNet (Courbariaux et. al.)
 - Two approximations
   - Binary-weight-networks (weight values are binary and convolution can be done with addition and subtraction without multiplication)
   - XNOR-networks (both weights and inputs to the CONV and FC layers are binary) -> FC are implemented as CONV
