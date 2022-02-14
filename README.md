@@ -67,7 +67,7 @@ todo
 
 #### Zhang, Tianyun, Shaokai Ye, Kaiqi Zhang, Jian Tang, Wujie Wen, Makan Fardad, and Yanzhi Wang. "A systematic dnn weight pruning framework using alternating direction method of multipliers." In Proceedings of the European Conference on Computer Vision (ECCV), pp. 184-199. 2018. [link](https://arxiv.org/pdf/1804.03294v3.pdf)
 
-#### Lin, Darryl, Sachin Talathi, and Sreekanth Annapureddy. "Fixed point quantization of deep convolutional networks." In International conference on machine learning, pp. 2849-2858. PMLR, 2016. [link](http://proceedings.mlr.press/v48/linb16.pdf) ![](https://img.shields.io/badge/dataset-CIFAR--10-orange.svg)
+#### Lin, Darryl, Sachin Talathi, and Sreekanth Annapureddy. "Fixed point quantization of deep convolutional networks." In International conference on machine learning, pp. 2849-2858. PMLR, 2016. [link](http://proceedings.mlr.press/v48/linb16.pdf) ![](https://img.shields.io/badge/dataset-CIFAR--10_|_ImageNet-orange.svg)
 - Proposes algorithm to convert floating point trained Deep Convolutional Network (DCN) to fixed point 
 - Converts CNN layer activations and weights into fixed point
 - Builds upon Sajid et al (2015)'s work on converting pretrained floating point networks to fixed point model using an optimization stratgy based on signal-to-quantization-noise-ratio (SQNR) instead of exhaustive search.
@@ -94,6 +94,14 @@ todo
   - Batch Norm -> linear transformation that can be absorbed by neighboring CONV layer -> does not need to be modeled for quantization
   - ReLU -> ReLU only starts to affect SQNR calculation when the perturbation caused by quantization is sufficiently large to alter the sign of an activation
   - Non-ReLU activations -> Not modelled
+- Not all layers have to be quantized with the same bit-width; layers that are more data dense would benefit from higher resolution than others
+- Mininum bit-width before performance degradation is 6
+> it is worth nothing that the proposed cross-layer layer bit-width optimization algorithm is most effective when the network size is dominated by convolutional layers, and is less effective otherwise.
+
+Key takeaways:
+- Be able to calculate the SQNR when performing quantization
+- Being able to set contraints for particular research problems (in this case, the paper focuses on quantizing just the CONV layers, keeps FC layers for others to tackle)
+
 
 #### Zhu, Chenzhuo, Song Han, Huizi Mao, and William J. Dally. "Trained ternary quantization." arXiv preprint arXiv:1612.01064 (2016). [link](https://arxiv.org/pdf/1612.01064.pdf)
 
