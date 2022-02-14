@@ -125,10 +125,16 @@ Key takeaways:
   - Stochastic: x<sup>b</sup> = +1 with probability p = sigma(x) and -1 with probability 1 - p
     - where sigma is the hard sigmoid
 - Since sign(x) is a non-differentiable function, they use something called a [straight-through estimator](https://www.hassanaskary.com/python/pytorch/deep%20learning/2020/09/19/intuitive-explanation-of-straight-through-estimators.html) for backpropagation. Essentially the gradients of the previous layer are backpropagated directly (via a hard tanh to clamp gradients to -1 to 1).
-
+- Revamped DNN components
+  - Shift based Batch Normalization
+  - Shift based AdaMax for ADAM
+  - First (image) layer is converted to 8-bit fixed point (needs verification)
+> Although BNNs are slower to train, they are nearly as accurate as 32-bit float DNNs.
+> filter replication is very common ... on our CIFAR-10 ConvNet, only 42% of the filters are unique.
+> In BNNs, both the activations and the weights are constrained to either −1 or +1. As a result, most of the 32-bit floating point multiply-accumulations are replaced by 1-bit XNOR-count operations.
 
 Key takeaways:
-- Straight-through estimator
+- Use the idea of straight-through estimator when dealing with non-differentiable functions
 
 #### Rastegari, Mohammad, Vicente Ordonez, Joseph Redmon, and Ali Farhadi. "Xnor-net: Imagenet classification using binary convolutional neural networks." In European conference on computer vision, pp. 525-542. Springer, Cham, 2016.  [link](https://link.springer.com/chapter/10.1007/978-3-319-46493-0_32)
 ![](https://img.shields.io/badge/dataset-ImageNet-orange.svg) ![](https://img.shields.io/badge/models-AlexNet-green.svg)
