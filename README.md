@@ -88,6 +88,12 @@ todo
     - step_size = zeta * Stepsize(beta) from the Table
   - Compute number of fractional bits n = round(-log2(step_size))
 > The effect of quantization (degradation) can be accurately captured in a single quantity, the SQNR.
+> the SQNR at the output of a layer in DCN is the Harmonic Mean of the SQNRs of all preceding quantization steps. Since the output SQNR is the harmonic mean, the network performance will be dominated by the worst quantization step.
+> doubling the depth of a DCN will half the output SQNR (3dB loss). But this loss can be readily recovered by adding 1 bit to the bit-width of all weights and activations, assuming the quantization efficiency is more than 3dB/bit. (emprically unverified)
+- Effects of DCN components
+  - Batch Norm -> linear transformation that can be absorbed by neighboring CONV layer -> does not need to be modeled for quantization
+  - ReLU -> ReLU only starts to affect SQNR calculation when the perturbation caused by quantization is sufficiently large to alter the sign of an activation
+  - Non-ReLU activations -> Not modelled
 
 #### Zhu, Chenzhuo, Song Han, Huizi Mao, and William J. Dally. "Trained ternary quantization." arXiv preprint arXiv:1612.01064 (2016). [link](https://arxiv.org/pdf/1612.01064.pdf)
 
